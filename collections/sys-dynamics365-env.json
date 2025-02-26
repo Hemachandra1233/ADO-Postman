@@ -40,7 +40,7 @@
 		},
 		{
 			"key": "host",
-			"value": "apidev.mscloud.usf.edu/sys-dynamics365",
+			"value": "apidev.mscloud.usf.edu/",
 			"type": "default",
 			"enabled": true
 		},
@@ -88,6 +88,6 @@
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2025-02-26T07:37:25.970Z",
+	"_postman_exported_at": "2025-02-26T09:43:16.266Z",
 	"_postman_exported_using": "Postman/11.33.5"
 }
