@@ -23,7 +23,6 @@ steps:
   inputs:
     script: |
       cd collections
-      pm.environment.set("client_id", "746da3f1e8c346bcad5d62e37d7f1b35")
-      pm.environment.set("client_secret", "aAb0614e4d3145D8A0da4e4D0f74236d")
-      newman run sys-dynamics365.postman_collection.json -e sys-dynamics365-env.json
+      
+      newman run sys-dynamics365.postman_collection.json -e sys-dynamics365-env.json --env-var "client_id=746da3f1e8c346bcad5d62e37d7f1b35" --env-var "client_secret=aAb0614e4d3145D8A0da4e4D0f74236d"
     failOnStderr: true
