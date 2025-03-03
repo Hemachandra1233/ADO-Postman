@@ -18,6 +18,14 @@
 							{
 								"key": "Accept",
 								"value": "application/json"
+							},
+							{
+								"key": "client_id",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}"
 							}
 						],
 						"url": {
