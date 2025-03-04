@@ -22,11 +22,13 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      pwd
-      ls
       cd collections
       
-      # newman run sys-dynamics365.postman_collection.json -e sys-dynamics365-env.json --env-var "client_id=746da3f1e8c346bcad5d62e37d7f1b35" --env-var "client_secret=aAb0614e4d3145D8A0da4e4D0f74236d" -r junit --reporter-junit-export ./results.xml
+      newman run sys-dynamics365.postman_collection.json -e sys-dynamics365-env.json --env-var "client_id=746da3f1e8c346bcad5d62e37d7f1b35" --env-var "client_secret=aAb0614e4d3145D8A0da4e4D0f74236d" -r junit --reporter-junit-export ./results.xml
       echo "Hello"
       ls
-    failOnStderr: true
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/*.xml'
+    searchFolder: '$(System.DefaultWorkingDirectory)/collections'
