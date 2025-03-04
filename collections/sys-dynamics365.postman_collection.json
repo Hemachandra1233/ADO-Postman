@@ -1,111 +1,464 @@
 {
 	"info": {
-		"_postman_id": "5b3492e6-db19-4c3f-a111-1d0da26ebfb5",
-		"name": "test-sys-dynamics365",
-		"description": "The purpose of this API is to handle interactions and orchestrations specific dynamics 365 CRM",
+		"_postman_id": "0e3bda5a-a47f-4eed-b53f-98bd1c7f6755",
+		"name": "sys-eai",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23031964"
+		"_exporter_id": "2847045"
 	},
 	"item": [
 		{
-			"name": "test",
+			"name": "v1/objectStores",
 			"item": [
 				{
-					"name": "/test - GET",
+					"name": "POST /v1/objectStores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"keyRanNum\", \"test-\" + _.random(0,999))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"{{keyRanNum}}\",\r\n    \"value\": \"{\\n  \\\"hubspot_contact_id\\\": 333333,\\n  \\\"dyn_guid\\\": \\\"adfj-09230-aslf-jasdlf\\\",\\n  \\\"dyn_opportunity_guid\\\": \\\"asdflkj-33330-ad432DD-DDw3g\\\",\\n  \\\"action\\\": \\\"update\\\",\\n  \\\"hubspot_correlation_id\\\": \\\"asdfwee-192120-aje09-PP4g\\\",\\n  \\\"error_message\\\": \\\"Ended up with Organization Service Fault. Following is the error.. | /upsertOpportunityFlow/processors/7/1/0 @ sys-dynamics365-test\\\"\\n}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{applicationName}}{{host}}{{path}}/v1/objectStores",
+							"host": [
+								"{{protocol}}{{applicationName}}{{host}}{{path}}"
+							],
+							"path": [
+								"v1",
+								"objectStores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /v1/objectStores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"{{keyRanNum}}\",\r\n    \"value\": \"{\\n  \\\"hubspot_contact_id\\\": 333333,\\n  \\\"dyn_guid\\\": \\\"adfj-09230-aslf-jasdlf\\\",\\n  \\\"dyn_opportunity_guid\\\": \\\"asdflkj-33330-ad432DD-DDw3g\\\",\\n  \\\"action\\\": \\\"update\\\",\\n  \\\"hubspot_correlation_id\\\": \\\"asdfwee-192120-aje09-PP4g\\\",\\n  \\\"error_message\\\": \\\"Ended up with Organization Service Fault. Following is the error.. | /upsertOpportunityFlow/processors/7/1/0 @ sys-dynamics365-test\\\"\\n}\",\r\n    \"type\": \"error\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{applicationName}}{{host}}{{path}}/v1/objectStores",
+							"host": [
+								"{{protocol}}{{applicationName}}{{host}}{{path}}"
+							],
+							"path": [
+								"v1",
+								"objectStores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /v1/objectStores - single quotes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"{{keyRanNum}}\",\r\n    \"value\": \"{\\\"FirstName\\\":\\\"D''Wayne\\\",\\\"Error\\\":\\\"Unable to evaluate DataSonnet expression: if !ds.isEmpty(payload[''OrgEvent ID'']) then payload[''OrgEvent ID''] else null\\\"}\",\r\n    \"type\": \"error\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{applicationName}}{{host}}{{path}}/v1/objectStores",
+							"host": [
+								"{{protocol}}{{applicationName}}{{host}}{{path}}"
+							],
+							"path": [
+								"v1",
+								"objectStores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /v1/objectStores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.text();\r",
+									"\r",
+									"pm.test(\"Status code is 504\", function () {\r",
+									"    pm.response.to.have.status(504);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
 								"key": "client_id",
-								"value": "{{client_id}}"
+								"value": "{{client_id}}",
+								"type": "text"
 							},
 							{
 								"key": "client_secret",
-								"value": "{{client_secret}}"
+								"value": "{{client_secret}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/test",
+							"raw": "{{protocol}}{{applicationName}}{{host}}{{path}}/v1/objectStores",
 							"host": [
-								"{{baseUrl}}"
+								"{{protocol}}{{applicationName}}{{host}}{{path}}"
 							],
 							"path": [
-								"test"
+								"v1",
+								"objectStores"
 							]
 						},
-						"description": "/test - GET"
+						"description": "This request is not running as expected because of the sql query behind it. Ideally, this request is not supposed to be used without query param. So, if the collection fails on this request, Please run teh collection without this request."
 					},
-					"response": [
+					"response": []
+				},
+				{
+					"name": "GET /v1/objectStores?key={{keyRanNum}}",
+					"event": [
 						{
-							"name": "Untitled Response",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Ocp-Apim-Subscription-Key",
-										"value": "<API Key>",
-										"description": "Added as a part of security scheme: apikey"
-									}
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
 								],
-								"url": {
-									"raw": "{{baseUrl}}/test",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"test"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{}"
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{applicationName}}{{host}}{{path}}/v1/objectStores?key={{keyRanNum}}",
+							"host": [
+								"{{protocol}}{{applicationName}}{{host}}{{path}}"
+							],
+							"path": [
+								"v1",
+								"objectStores"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{keyRanNum}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v1/hubspot/errors/file",
+			"item": [
+				{
+					"name": "POST /v1/hubspot/errors/file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {\r",
+									"    pm.response.to.have.status(202);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"{{keyRanNum}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{applicationName}}{{host}}{{path}}/v1/hubspot/errors/file",
+							"host": [
+								"{{protocol}}{{applicationName}}{{host}}{{path}}"
+							],
+							"path": [
+								"v1",
+								"hubspot",
+								"errors",
+								"file"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v1/vendor/errors/file",
+			"item": [
+				{
+					"name": "POST /v1/vendor/errors/file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {\r",
+									"    pm.response.to.have.status(202);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"{{keyRanNum}}\",\r\n    \"vendor\": \"generic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}{{applicationName}}{{host}}{{path}}/v1/vendor/errors/file",
+							"host": [
+								"{{protocol}}{{applicationName}}{{host}}{{path}}"
+							],
+							"path": [
+								"v1",
+								"vendor",
+								"errors",
+								"file"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
 	],
-	"auth": {
-		"type": "apikey",
-		"apikey": [
-			{
-				"key": "key",
-				"value": "Ocp-Apim-Subscription-Key",
-				"type": "string"
-			},
-			{
-				"key": "value",
-				"value": "{{apiKey}}",
-				"type": "string"
-			},
-			{
-				"key": "in",
-				"value": "header",
-				"type": "string"
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
 			}
-		]
-	},
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"key": "baseUrl",
-			"value": "https://apitest.mscloud.usf.edu/sys-dynamics365"
+			"key": "path",
+			"value": "/api"
+		},
+		{
+			"key": "keyRanNum",
+			"value": ""
+		},
+		{
+			"key": "applicationName",
+			"value": "sys-eai",
+			"type": "string"
 		}
 	]
 }
