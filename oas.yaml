@@ -1,0 +1,23 @@
+openapi: 3.0.3
+info:
+  title: Hello World API
+  description: A simple API that says hello.
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+paths:
+  /hello:
+    get:
+      summary: Say Hello
+      operationId: getHello
+      responses:
+        '200':
+          description: A greeting message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Hello, world!
